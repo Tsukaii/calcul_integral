@@ -1,4 +1,5 @@
 Projet de mathématiques :
+=========
 Approximation d'une intégrale
 =========
 
