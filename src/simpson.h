@@ -19,5 +19,8 @@
 	
 	double formuleSimpsonCosCarreExp(double a, double b);
 	double methodeSimpsonCosCarreExp(double a, double b, double pas);
+	
+	double formuleSimpsonPolynome(double a, double b, double coef[], int degre);
+	double methodeSimpsonPolynome(double a, double b, double pas, double coef[], int degre);
 
 #endif

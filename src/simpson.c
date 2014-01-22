@@ -25,7 +25,6 @@ double methodeSimpsonSinus(double a, double b, double pas){
 	while(i <= b){
 		integrale += formuleSimpsonSinus(i, i+pas);
 		i+=pas;
-		printf("%g\n", i);
 	}
 	
 	return integrale;
@@ -127,6 +126,35 @@ double methodeSimpsonCosCarreExp(double a, double b, double pas){
 	
 	while(i <= b){
 		integrale += formuleSimpsonCosCarreExp(i, i+pas);
+		i+=pas;
+	}
+	
+	return integrale;
+}
+
+
+/* 
+ * Même principe que formuleSimpsonSinus, mais pour un polynôme
+ * @param double coef[] : Tableau des coefficients du polynome
+ * @param int degre : Degré du polynôme
+ */
+double formuleSimpsonPolynome(double a, double b, double coef[], int degre){
+	return ( (b-a)/6 ) * ( polynome(a, coef, degre) + 4*polynome((a+b)/2, coef, degre) + polynome(b, coef, degre) );
+}
+
+/* 
+ * Même principe que methodeSimpsonSinus, mais pour un polynôme (utilise
+ * formuleSimpsonCosCarreExp)
+ * @param double coef[] : Tableau des coefficients du polynome
+ * @param int degre : Degré du polynôme
+ */
+double methodeSimpsonPolynome(double a, double b, double pas, double coef[], int degre){
+	
+	double integrale = 0.0;
+	double i = a;
+	
+	while(i <= b){
+		integrale += formuleSimpsonPolynome(i, i+pas, coef, degre);
 		i+=pas;
 	}
 	
