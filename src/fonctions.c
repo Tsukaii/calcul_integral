@@ -13,7 +13,13 @@ double sinus(double x){
  * @return La racine carrée du logarithme népérien de x
  */
 double racineLn(double x){
-	return sqrt( log(x) );
+	double valeur = 0.0;
+	if (x <= 0)
+		printf("Valeur interdite !\n");
+	else
+		valeur = sqrt( log(x) );
+		
+	return valeur;
 }
 
 /*
@@ -29,7 +35,13 @@ double sinusCube(double x){
  * @return L'inverse de tan(x) au cube
  */
 double inverseTanExpQuatre(double x){
-	return 1/pow( tan(x), 4);
+	double valeur = 0.0;
+	if (x == 0.0)
+		printf("Valeur interdite !\n");
+	else
+		valeur = 1/pow( tan(x), 4);
+		
+	return valeur;
 }
 
 /*
@@ -53,14 +65,4 @@ double polynome(double x, double coef[], int degre){
 	
 	return polynome;
 }
-
-int main(){
-	double bla[] = {2, 3, 4, 6, -8};
-	double a = polynome(23, bla, 4);
-	
-	printf("%lf\n", a);
-	
-	return 0;
-}
-
 
