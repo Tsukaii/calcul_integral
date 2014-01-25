@@ -4,8 +4,6 @@
 	#include <stdio.h>
 	#include <math.h>
 
-	double sinus(double x);
-
 	double racineLn(double x);
 
 	double sinusCube(double x);

@@ -7,7 +7,7 @@
  * @return Le résultat de l'intégrale
  */
 double formuleSimpsonSinus(double a, double b){
-	return ( (b-a)/6 ) * ( sinus(a) + 4*sinus((a+b)/2) + sinus(b) );
+	return ( (b-a)/6 ) * ( sin(a) + 4*sin((a+b)/2) + sin(b) );
 }
 
 /* Calcule une approximation de l'intégrale de la fonction sinus sur l'intervalle
@@ -17,10 +17,11 @@ double formuleSimpsonSinus(double a, double b){
  * @param double pas : Largeur d'un sous-intervalle
  * @return Le résultat du polyôme
  */
-double methodeSimpsonSinus(double a, double b, double pas){
+double methodeSimpsonSinus(double a, double b, double nbPts){
 	
 	double integrale = 0.0;
 	double i = a;
+	double pas = (b-a)/ (2*nbPts);
 	
 	while(i <= b){
 		integrale += formuleSimpsonSinus(i, i+pas);
@@ -43,10 +44,11 @@ double formuleSimpsonRacineLn(double a, double b){
  * Même principe que methodeSimpsonSinus, mais pour la fonction racine
  * carrée du logarithme népérien (utilise formuleSimpsonRacineLn)
  */
-double methodeSimpsonRacineLn(double a, double b, double pas){
+double methodeSimpsonRacineLn(double a, double b, double nbPts){
 	
 	double integrale = 0.0;
 	double i = a;
+	double pas = (b-a)/ (2*nbPts);
 	
 	while(i <= b){
 		integrale += formuleSimpsonRacineLn(i, i+pas);
@@ -68,10 +70,11 @@ double formuleSimpsonSinusCube(double a, double b){
  * Même principe que methodeSimpsonSinus, mais pour la fonction sinus cube
  * (utilise formuleSimpsonSinusCube)
  */
-double methodeSimpsonSinusCube(double a, double b, double pas){
+double methodeSimpsonSinusCube(double a, double b, double nbPts){
 	
 	double integrale = 0.0;
 	double i = a;
+	double pas = (b-a)/ (2*nbPts);
 	
 	while(i <= b){
 		integrale += formuleSimpsonSinusCube(i, i+pas);
@@ -94,10 +97,11 @@ double formuleSimpsonInverseTanExpQuatre(double a, double b){
  * Même principe que methodeSimpsonSinus, mais pour la fonction inverse 
  * de tan(x) au cube (utilise formuleSimpsonInverseTanExpQuatre)
  */
-double methodeSimpsonInverseTanExpQuatre(double a, double b, double pas){
+double methodeSimpsonInverseTanExpQuatre(double a, double b, double nbPts){
 	
 	double integrale = 0.0;
 	double i = a;
+	double pas = (b-a)/ (2*nbPts);
 	
 	while(i <= b){
 		integrale += formuleSimpsonInverseTanExpQuatre(i, i+pas);
@@ -119,10 +123,11 @@ double formuleSimpsonCosCarreExp(double a, double b){
  * Même principe que methodeSimpsonSinus, mais pour la fonction cos²(x)*exp(x)
  * (utilise formuleSimpsonCosCarreExp)
  */
-double methodeSimpsonCosCarreExp(double a, double b, double pas){
+double methodeSimpsonCosCarreExp(double a, double b, double nbPts){
 	
 	double integrale = 0.0;
 	double i = a;
+	double pas = (b-a)/ (2*nbPts);
 	
 	while(i <= b){
 		integrale += formuleSimpsonCosCarreExp(i, i+pas);
@@ -148,10 +153,11 @@ double formuleSimpsonPolynome(double a, double b, double coef[], int degre){
  * @param double coef[] : Tableau des coefficients du polynome
  * @param int degre : Degré du polynôme
  */
-double methodeSimpsonPolynome(double a, double b, double pas, double coef[], int degre){
+double methodeSimpsonPolynome(double a, double b, double nbPts, double coef[], int degre){
 	
 	double integrale = 0.0;
 	double i = a;
+	double pas = (b-a)/ (2*nbPts);
 	
 	while(i <= b){
 		integrale += formuleSimpsonPolynome(i, i+pas, coef, degre);

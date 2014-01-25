@@ -6,21 +6,21 @@
 	#include "fonctions.h"
 
 	double formuleSimpsonSinus(double a, double b);
-	double methodeSimpsonSinus(double a, double b, double pas);
+	double methodeSimpsonSinus(double a, double b, double nbPts);
 	
 	double formuleSimpsonRacineLn(double a, double b);
-	double methodeSimpsonRacineLn(double a, double b, double pas);
+	double methodeSimpsonRacineLn(double a, double b, double nbPts);
 	
 	double formuleSimpsonSinusCube(double a, double b);
-	double methodeSimpsonSinusCube(double a, double b, double pas);
+	double methodeSimpsonSinusCube(double a, double b, double nbPts);
 	
 	double formuleSimpsonInverseTanExpQuatre(double a, double b);
-	double methodeSimpsonInverseTanExpQuatre(double a, double b, double pas);
+	double methodeSimpsonInverseTanExpQuatre(double a, double b, double nbPts);
 	
 	double formuleSimpsonCosCarreExp(double a, double b);
-	double methodeSimpsonCosCarreExp(double a, double b, double pas);
+	double methodeSimpsonCosCarreExp(double a, double b, double nbPts);
 	
 	double formuleSimpsonPolynome(double a, double b, double coef[], int degre);
-	double methodeSimpsonPolynome(double a, double b, double pas, double coef[], int degre);
+	double methodeSimpsonPolynome(double a, double b, double nbPts, double coef[], int degre);
 
 #endif

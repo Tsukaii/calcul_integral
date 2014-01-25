@@ -2,14 +2,6 @@
 
 /*
  * @param double x : Valeur de x utilisée dans la fonction
- * @return Le sinus de x
- */
-double sinus(double x){
-	return sin(x);
-}
-
-/*
- * @param double x : Valeur de x utilisée dans la fonction
  * @return La racine carrée du logarithme népérien de x
  */
 double racineLn(double x){
