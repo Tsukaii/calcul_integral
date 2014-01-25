@@ -16,13 +16,6 @@
 #define NBCHOIX 7
 
 int main(int argc, char *argv[]){
-	double inte = 0;
-	double coef[3] = {1, 2, 3};
-	inte = methodeRombergSinus(0.0, 3.0, 9, 10);
-	printf("%lf \n", inte);
-	
-	exit(1);
-	
 	int fonction = 0;
 	int saisieCorrecte = 0;
 	double *polynome = NULL; //Tableau des coefficients du polynôme saisi par l'utilisateur
@@ -76,13 +69,13 @@ int main(int argc, char *argv[]){
 	scanf("%lf", &borneInf);
 	printf("Borne supérieure : ");
 	scanf("%lf", &borneSup);
-	printf("Nombre de sous-intervalles : ");
+	printf("Nombre de sous-intervalles (valeur max conseillée = 1 000 000) : ");
 	scanf("%d", &nbPts);
 	
 	//Traitement suivant la fonction à utiliser
 	switch (fonction) {
 		case POLYNOME : //L'utilisateur entre son polynôme
-			printf("Entrez le degré de votre polynôme : ");
+			printf("\nEntrez le degré de votre polynôme : ");
 			scanf("%d", &degre);
 			while(degre < 0){ //Tant que l'utilisateur n'entre pas un degré > 0, le programme lui demande de le saisir à nouveau
 				printf("Degré de polynôme incorrect\n");
@@ -98,33 +91,33 @@ int main(int argc, char *argv[]){
 			}
 			
 			integrale_s = methodeSimpsonPolynome(borneInf, borneSup, nbPts, polynome, degre);
-			integrale_r = methodeRombergPolynome(borneInf, borneSup, nbPts-1, nbPts, polynome, degre);
+			integrale_r = methodeRombergPolynome(borneInf, borneSup, 15, 15, polynome, degre);
 			
 			break;
 			
 		case SINUS :
 			integrale_s = methodeSimpsonSinus(borneInf, borneSup, nbPts);
-			integrale_r = methodeRombergSinus(borneInf, borneSup, nbPts-1, nbPts);
+			integrale_r = methodeRombergSinus(borneInf, borneSup, 15, 15);
 			break;
 			
 		case RACINELN :
 			integrale_s = methodeSimpsonRacineLn(borneInf, borneSup, nbPts);
-			integrale_r = methodeRombergRacineLn(borneInf, borneSup, nbPts-1, nbPts);
+			integrale_r = methodeRombergRacineLn(borneInf, borneSup, 15, 15);
 			break;
 			
 		case SINUSCUBE :
 			integrale_s = methodeSimpsonSinusCube(borneInf, borneSup, nbPts);
-			integrale_r = methodeRombergSinusCube(borneInf, borneSup, nbPts-1, nbPts);
+			integrale_r = methodeRombergSinusCube(borneInf, borneSup, 15, 15);
 			break;
 		
 		case INVTAN4 :
 			integrale_s = methodeSimpsonInverseTanExpQuatre(borneInf, borneSup, nbPts);
-			integrale_r = methodeRombergInverseTanExpQuatre(borneInf, borneSup, nbPts-1, nbPts);
+			integrale_r = methodeRombergInverseTanExpQuatre(borneInf, borneSup, 15, 15);
 			break;
 			
 		case COS2EXP :
 			integrale_s = methodeSimpsonCosCarreExp(borneInf, borneSup, nbPts);
-			integrale_r = methodeRombergCosCarreExp(borneInf, borneSup, nbPts-1, nbPts);
+			integrale_r = methodeRombergCosCarreExp(borneInf, borneSup, 15, 15);
 			break;
 			
 		default :
